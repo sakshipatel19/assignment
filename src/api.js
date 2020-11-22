@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const getHeader = () => {
 	return {
-		'x-auth-token': `${localStorage.getItem('access_token')}`,
+		'x-auth-token': `${localStorage.getItem('token')}`,
 	};
 };
 export const fetchDaterange = async (payload) => {

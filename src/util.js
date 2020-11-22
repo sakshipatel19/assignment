@@ -4,6 +4,6 @@ export const isEmail = (email) => {
 };
 
 export const isPassword = (password) => {
-	var re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+	var re = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
 	return re.test(password);
 };
