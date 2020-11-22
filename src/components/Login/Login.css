@@ -35,11 +35,10 @@
 .login-container .logo {
 	width: 100px;
 	height: 100px;
-	margin-top: 50px;
-	margin-bottom: 20px;
+	margin: 20px 0px;
 	display: flex;
 	align-self: center;
-	padding: 20px;
+	padding: 10px;
 }
 
 .login-container .input {

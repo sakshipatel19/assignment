@@ -34,6 +34,8 @@ class Login extends Component {
 		return (
 			<div className='login-container'>
 				<img src='../../sigmoid_logo.png' className='logo' />
+				<p>SigView - Interactive Analytics Platform</p>
+				<h2>Sign In</h2>
 				<input
 					type='text'
 					className='input'

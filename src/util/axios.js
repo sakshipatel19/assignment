@@ -6,6 +6,7 @@ const getHeader = () => ({
 });
 
 const AxiosCall = async (method, url, data) => {
+	console.log(url);
 	return await axios({
 		method: method,
 		url: url,

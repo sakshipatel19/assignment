@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { fetchDaterange } from '../../api';
-import { callDashboardService } from '../../services/callDashboardService';
-
 class Dashboard extends Component {
 	state = { daterange: null };
 	componentDidMount() {
-		callDashboardService();
-		// console.log(fetchDaterange());
+		const {
+			requestDateRange,
+			requestchart1data,
+			requestchart2data,
+		} = this.props;
+		requestDateRange();
+		requestchart1data();
+		requestchart2data();
 	}
 	render() {
 		console.log(this.props);
