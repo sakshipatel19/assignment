@@ -13,7 +13,6 @@ class Login extends Component {
 
 	signIn = () => {
 		const { username, password } = this.state;
-		console.log(isEmail(username), isPassword(password));
 		if (isEmail(username) && isPassword(password)) {
 			if (authenticate(username, password)) {
 				console.log('authenticated');

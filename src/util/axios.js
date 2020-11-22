@@ -5,7 +5,7 @@ const getHeader = () => ({
 	'x-auth-token': `${localStorage.getItem('token')}`,
 });
 
-const AxiosCall = async (method, url, data, isDownload = false) => {
+const AxiosCall = async (method, url, data) => {
 	return await axios({
 		method: method,
 		url: url,
@@ -13,21 +13,8 @@ const AxiosCall = async (method, url, data, isDownload = false) => {
 		data: data,
 		headers: getHeader(),
 	})
-		.then((response) => {
-			if (response.status === 200) {
-				const result = response.data;
-				if (isDownload) {
-					resolve({ result: response });
-				}
-
-				resolve({ result });
-			}
-
-			error({ error: { status: response.status } });
-		})
-		.catch((err) => {
-			error({ error: err });
-		});
+		.then((response) => response.data)
+		.catch((err) => err);
 };
 
 class Axios {
