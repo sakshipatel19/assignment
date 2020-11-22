@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { authenticate } from '../../auth';
-import { isEmail, isPassword } from '../../util';
+import { authenticate } from '../../util/auth';
+import { isEmail, isPassword } from '../../util/util';
 import './Login.css';
 
 class Login extends Component {

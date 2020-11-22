@@ -1,11 +1,18 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-class Dashboard extends Component {
-	componentDidMount() {}
-	render() {
-		return <div className='dashboard-container'>Dashboard</div>;
-	}
-}
+import * as actions from './actions';
 
-export default withRouter(Dashboard);
+import Dashboard from './Dashboard';
+
+const mapStateToProps = (store) => {
+	return {
+		...store.dashboard,
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return bindActionCreators({ ...actions }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
