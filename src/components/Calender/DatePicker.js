@@ -26,7 +26,11 @@ class DatePicker extends Component {
 	handleDateSelect = (e) => {
 		e.preventDefault();
 		const { dates } = this.state;
-		if (validateSelect(dates)) this.props.handleDateSelect(dates);
+		if (validateSelect(dates)) {
+			this.props.handleDateSelect(dates);
+		}
+		this.setState({ dates: [] });
+		this.props.handleDateCancel();
 	};
 	convertEpochTimeToDate = (value) => {
 		return moment(parseInt(value)).format('L');

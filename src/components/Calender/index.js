@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 import './Calender.css';
 import DatePicker from './DatePicker';
+
 class Calender extends Component {
 	state = { showCalender: false };
 	showCalender = () => {
@@ -11,7 +13,14 @@ class Calender extends Component {
 		this.setState({ showCalender: false });
 	};
 	handleDateSelect = (daterange) => {
-		console.log(daterange);
+		let startDate = moment(daterange[0]).unix() * 1000;
+		let endDate = moment(daterange[1]).unix() * 1000;
+		let selectedDateRange = {
+			startDate: startDate.toString(),
+			endDate: endDate.toString(),
+		};
+		console.log(selectedDateRange);
+		this.props.onDateRangeSelect(selectedDateRange);
 	};
 	render() {
 		const { showCalender } = this.state;
