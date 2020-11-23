@@ -12,30 +12,30 @@ const validateSelect = (dateRange) => {
 };
 class DatePicker extends Component {
 	state = {
-		dateRange: this.props.dateRange,
+		daterange: this.props.daterange,
 	};
-	handleRangeChange = (dateRange) => {
+	handleRangeChange = (daterange) => {
 		// const range =
 		// 	(this.props.handleRangeChange &&
 		// 		this.props.handleRangeChange(dateRange)) ||
 		// 	dateRange;
 
 		this.setState({
-			dateRange: dateRange,
+			daterange: daterange,
 		});
 	};
 	handleDateCancel = () => {
 		this.props.handleDateCancel();
 	};
 	handleDateSelect = () => {
-		const { dateRange } = this.state;
-		if (validateSelect(dateRange)) this.props.handleDateSelect(dateRange);
+		const { daterange } = this.state;
+		if (validateSelect(daterange)) this.props.handleDateSelect(daterange);
 	};
 	render() {
-		const { dateRange } = this.state;
-		console.log(dateRange);
+		const { daterange } = this.props;
+		console.log(daterange);
 		const { calenderClass } = this.props;
-		const isSelectDisabled = validateSelect(dateRange);
+		const isSelectDisabled = validateSelect(daterange);
 		const classes = `date-range-inner-container ${calenderClass}`;
 
 		return (
@@ -43,7 +43,7 @@ class DatePicker extends Component {
 				<i className={`${calenderClass}-i`}></i>
 				<DateRangePicker
 					className={classes}
-					value={dateRange}
+					value={daterange}
 					onChange={this.handleRangeChange}
 					contiguousCalendarMonths={false}
 					maxDate={new Date()}

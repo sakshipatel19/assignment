@@ -16,7 +16,7 @@ class Calender extends Component {
 		const { daterange } = this.props;
 		console.log(daterange);
 		return (
-			<div className='calender-container'>
+			<div className='date-range-picker-component-container calender-container'>
 				<i
 					className='fa fa fa-calendar calender-icon'
 					onClick={this.showCalender}

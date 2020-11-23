@@ -13,6 +13,9 @@
 	font-size: 25px;
 	font-weight: 500;
 }
+.dashboard-container .dashboard-header .refresh {
+	cursor: pointer;
+}
 .dashboard-container .chart-container {
 	display: flex;
 	flex-direction: row;

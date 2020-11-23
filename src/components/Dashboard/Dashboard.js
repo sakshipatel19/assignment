@@ -13,6 +13,10 @@ class Dashboard extends Component {
 		this.props.requestchart1data();
 		this.props.requestchart2data();
 	}
+	refreshdata = () => {
+		this.props.requestchart1data();
+		this.props.requestchart2data();
+	};
 	render() {
 		const { chart1Data, daterange, chart2Data } = this.props;
 		return (
@@ -20,6 +24,9 @@ class Dashboard extends Component {
 				<div className='dashboard-header'>
 					<div className='header'>DASHBOARD</div>
 					<Calender daterange={daterange.data} />
+					<div className='refresh' onClick={this.refreshdata}>
+						<i className='fa fa fa-refresh'></i>
+					</div>
 				</div>
 				<div className='chart-container'>
 					<PieChart data={chart2Data.data} />
