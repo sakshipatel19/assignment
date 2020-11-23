@@ -1,0 +1,8 @@
+.calender-container {
+	position: absolute;
+	margin-left: 500px;
+}
+.calender-container .calender-icon {
+	cursor: pointer;
+	position: relative;
+}

@@ -5,10 +5,11 @@
 }
 .dashboard-container .dashboard-header {
 	display: flex;
-	flex-direction: row;
+	/* flex-direction: row; */
 	justify-content: space-between;
 	margin-left: 10px;
 	margin-bottom: 20px;
+	margin-top: 20px;
 	font-size: 25px;
 	font-weight: 500;
 }

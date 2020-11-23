@@ -12,7 +12,7 @@ const chart1Payload = {
 			title: 'chartobject:1516252439345',
 			img_thumbnail: '../img/chart.png',
 			chartType: 'table',
-			dataLimit: 50,
+			dataLimit: 15,
 		},
 		requestParam: {
 			granularity: 'hour',
@@ -53,7 +53,7 @@ const chart2Payload = {
 			title: '',
 			img_thumbnail: 'images/pie.png',
 			chartType: 'pie',
-			dataLimit: 500,
+			dataLimit: 10,
 		},
 		text: [],
 		requestParam: {

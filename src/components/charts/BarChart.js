@@ -3,7 +3,6 @@ import { Bar } from 'react-chartjs-2';
 import Card from '../Card';
 
 const BarGraph = (props) => {
-	console.log(props.data);
 	const createGraphData = () => {
 		const data = props?.data;
 		const datasets = [];
@@ -31,8 +30,8 @@ const BarGraph = (props) => {
 			chartData.datasets.forEach((set, i) => {
 				let backgroundColor = ['#4CA0FA', '#F79764'];
 				set.backgroundColor = backgroundColor[i];
-				set.barThickness = 7;
-				set.maxBarThickness = 8;
+				set.barThickness = 10;
+				set.maxBarThickness = 10;
 				set.categoryPercentage = 0.2;
 				set.barPercentage = 0.3;
 			});
@@ -48,7 +47,7 @@ const BarGraph = (props) => {
 		layout: {
 			padding: {
 				left: 0,
-				top: 0,
+				top: 10,
 				right: 0,
 				bottom: 5,
 			},
@@ -65,8 +64,8 @@ const BarGraph = (props) => {
 
 					ticks: {
 						autoSkip: false,
-						// maxRotation: 0,
-						fontSize: 8,
+						maxRotation: 0,
+						fontSize: 10,
 						fontColor: '#212129',
 
 						callback: function (label) {
@@ -88,15 +87,13 @@ const BarGraph = (props) => {
 						zeroLineColor: '#f2f2f2',
 					},
 					ticks: {
-						beginAtZero: true,
-						stepSize: 10,
 						padding: 10,
-						fontSize: 8,
+						fontSize: 10,
 						fontColor: '#212129',
 
-						// callback: function (label, index, labels) {
-						// 	return label % 20 ? '' : label;
-						// },
+						callback: function (label, index, labels) {
+							return label % 20 ? '' : label;
+						},
 					},
 				},
 			],

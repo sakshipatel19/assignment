@@ -3,7 +3,6 @@ import * as constants from './constants';
 // date range actions
 
 export const requestDateRange = () => {
-	console.log('in action');
 	return {
 		type: constants.GET_DATE_RANGE_REQUEST,
 		payload: {

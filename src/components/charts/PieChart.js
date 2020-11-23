@@ -4,8 +4,6 @@ import React from 'react';
 import Card from '../Card';
 
 const PieChart = (props) => {
-	console.log(props.data);
-
 	const getRandomColor = () => {
 		var letters = '0123456789ABCDEF';
 		var color = '#';
@@ -38,7 +36,7 @@ const PieChart = (props) => {
 	};
 
 	return (
-		<Card className="pie-card">
+		<Card className='pie-card'>
 			<div className='card-header'>
 				<div className='card-title'>Pie Chart</div>
 			</div>
@@ -47,6 +45,7 @@ const PieChart = (props) => {
 					width: '350px',
 					height: '350px',
 					marginRight: '30px',
+					marginTop: '30px',
 				}}
 			>
 				<Doughnut
@@ -63,7 +62,12 @@ const PieChart = (props) => {
 							display: false,
 						},
 						layout: {
-							padding: 5,
+							padding: {
+								left: 0,
+								top: 30,
+								right: 0,
+								bottom: 5,
+							},
 						},
 						rotation: 150,
 						cutoutPercentage: 0,

@@ -14,13 +14,12 @@ class Dashboard extends Component {
 		this.props.requestchart2data();
 	}
 	render() {
-		console.log(this.props);
 		const { chart1Data, daterange, chart2Data } = this.props;
 		return (
 			<div className='dashboard-container'>
 				<div className='dashboard-header'>
 					<div className='header'>DASHBOARD</div>
-					<Calender daterange={daterange} />
+					<Calender daterange={daterange.data} />
 				</div>
 				<div className='chart-container'>
 					<PieChart data={chart2Data.data} />
