@@ -2,13 +2,16 @@ import * as constants from './constants';
 
 // date range actions
 
-export const requestDateRange = () => ({
-	type: constants.GET_DATE_RANGE_REQUEST,
-	payload: {
-		organization: 'DemoTest',
-		view: 'Auction',
-	},
-});
+export const requestDateRange = () => {
+	console.log('in action');
+	return {
+		type: constants.GET_DATE_RANGE_REQUEST,
+		payload: {
+			organization: 'DemoTest',
+			view: 'Auction',
+		},
+	};
+};
 
 export const reciveDateRange = (response) => ({
 	type: constants.GET_DATE_RANGE_SUCCESS,

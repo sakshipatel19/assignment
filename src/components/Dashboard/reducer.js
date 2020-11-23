@@ -11,7 +11,7 @@ const defaultState = {
 		error: null,
 		data: null,
 	},
-	charteData: {
+	chart2Data: {
 		fetching: null,
 		error: null,
 		data: null,

@@ -48,6 +48,6 @@ function* fetchChart2Data(action) {
 		yield put(actions.errorchart2data(error));
 	}
 }
-export default function* _watchDashboardActions() {
+export default function* rootSaga() {
 	yield all([watchDaterange(), watchChart1Data(), watchChart2Data()]);
 }
