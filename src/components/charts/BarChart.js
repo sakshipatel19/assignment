@@ -1,5 +1,6 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
+import Card from '../Card';
 
 const BarGraph = (props) => {
 	console.log(props.data);
@@ -43,34 +44,13 @@ const BarGraph = (props) => {
 		responsive: true,
 		tooltips: {
 			enabled: true,
-			mode: 'index',
-			callbacks: {
-				title: function (tooltipItem, data) {
-					let title;
-					if (tooltipItem.length > 1) {
-						title = `${tooltipItem[0].yLabel - tooltipItem[1].yLabel}%`;
-					} else {
-						title = `${tooltipItem[0].yLabel}%`;
-					}
-					return title;
-				},
-				label: function (tooltipItem, data) {
-					let title;
-					if (data.datasets.length > 1) {
-						title = `${tooltipItem.yLabel}%`;
-					} else {
-						title = null;
-					}
-					return title;
-				},
-			},
 		},
 		layout: {
 			padding: {
 				left: 0,
-				top: 50,
+				top: 0,
 				right: 0,
-				bottom: 10,
+				bottom: 5,
 			},
 		},
 		maintainAspectRatio: true,
@@ -86,7 +66,7 @@ const BarGraph = (props) => {
 					ticks: {
 						autoSkip: false,
 						// maxRotation: 0,
-						fontSize: 10,
+						fontSize: 8,
 						fontColor: '#212129',
 
 						callback: function (label) {
@@ -111,12 +91,12 @@ const BarGraph = (props) => {
 						beginAtZero: true,
 						stepSize: 10,
 						padding: 10,
-						fontSize: 10,
+						fontSize: 8,
 						fontColor: '#212129',
 
-						callback: function (label, index, labels) {
-							return label % 20 ? '' : label;
-						},
+						// callback: function (label, index, labels) {
+						// 	return label % 20 ? '' : label;
+						// },
 					},
 				},
 			],
@@ -128,18 +108,23 @@ const BarGraph = (props) => {
 		},
 	};
 	return (
-		<div
-			className='bargraph-container'
-			style={{ width: '900px', height: '500px', padding: '20px' }}
-		>
-			<Bar
-				redraw
-				data={getChartData}
-				options={barChartOptions}
-				width={900}
-				height={500}
-			/>
-		</div>
+		<Card>
+			<div className='card-header'>
+				<div className='card-title'>Bar Chart</div>
+			</div>
+			<div
+				className='bargraph-container'
+				style={{ width: '900px', height: '500px' }}
+			>
+				<Bar
+					redraw
+					data={getChartData}
+					options={barChartOptions}
+					width={900}
+					height={500}
+				/>
+			</div>
+		</Card>
 	);
 };
 

@@ -1,0 +1,22 @@
+.card-container {
+	display: flex;
+	flex-direction: column;
+	padding: 30px 35px;
+	background-color: #ffffff;
+	box-sizing: border-box;
+	border: 1px solid #e7e7e7;
+	border-radius: 10px;
+	box-shadow: 0 20px 60px -22px rgba(0, 67, 132, 0.3);
+}
+
+.card-container .card-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.card-container .card-header .card-title {
+	color: #212129;
+	font-size: 22px;
+	letter-spacing: 0;
+	line-height: 32px;
+}

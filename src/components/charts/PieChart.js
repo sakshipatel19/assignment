@@ -1,6 +1,8 @@
 import { Doughnut, Chart } from 'react-chartjs-2';
 import React from 'react';
 
+import Card from '../Card';
+
 const PieChart = (props) => {
 	console.log(props.data);
 
@@ -36,34 +38,39 @@ const PieChart = (props) => {
 	};
 
 	return (
-		<div
-			style={{
-				width: '400px',
-				height: '400px',
-				marginRight: '30px',
-			}}
-		>
-			<Doughnut
-				redraw
-				data={createGraphData()}
-				width={300}
-				height={300}
-				options={{
-					aspectRatio: 1,
-					tooltips: {
-						enabled: true,
-					},
-					legend: {
-						display: false,
-					},
-					layout: {
-						padding: 5,
-					},
-					rotation: 150,
-					cutoutPercentage: 0,
+		<Card className="pie-card">
+			<div className='card-header'>
+				<div className='card-title'>Pie Chart</div>
+			</div>
+			<div
+				style={{
+					width: '350px',
+					height: '350px',
+					marginRight: '30px',
 				}}
-			/>
-		</div>
+			>
+				<Doughnut
+					redraw
+					data={createGraphData()}
+					width={300}
+					height={300}
+					options={{
+						aspectRatio: 1,
+						tooltips: {
+							enabled: true,
+						},
+						legend: {
+							display: false,
+						},
+						layout: {
+							padding: 5,
+						},
+						rotation: 150,
+						cutoutPercentage: 0,
+					}}
+				/>
+			</div>
+		</Card>
 	);
 };
 

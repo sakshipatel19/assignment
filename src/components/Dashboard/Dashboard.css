@@ -1,0 +1,22 @@
+.dashboard-container {
+	display: flex;
+	flex-direction: column;
+	padding-left: 10px;
+}
+.dashboard-container .dashboard-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-left: 10px;
+	margin-bottom: 20px;
+	font-size: 25px;
+	font-weight: 500;
+}
+.dashboard-container .chart-container {
+	display: flex;
+	flex-direction: row;
+	margin-left: 10px;
+}
+.dashboard-container .pie-card {
+	margin-right: 30px;
+}
