@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import BarGraph from '../charts/BarChart';
+import PieChart from '../charts/PieChart';
 
 class Dashboard extends Component {
 	state = { daterange: null };
@@ -10,7 +12,13 @@ class Dashboard extends Component {
 	}
 	render() {
 		console.log(this.props);
-		return <div className='dashboard-container'>Dashboard</div>;
+		const { chart1Data, daterange, chart2Data } = this.props;
+		return (
+			<div className='dashboard-container'>
+				<PieChart data={chart2Data.data} />
+				<BarGraph data={chart1Data.data} />
+			</div>
+		);
 	}
 }
 
