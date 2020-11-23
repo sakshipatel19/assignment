@@ -47,7 +47,7 @@ const BarGraph = (props) => {
 		layout: {
 			padding: {
 				left: 0,
-				top: 10,
+				top: 30,
 				right: 0,
 				bottom: 5,
 			},

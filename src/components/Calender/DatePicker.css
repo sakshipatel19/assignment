@@ -383,8 +383,16 @@
 	color: black;
 	cursor: default;
 }
+.date-range-outer-container
+	.date-picker-buttons
+	.date-buttons
+	.date-picker-select
+	.disabled {
+	color: #5c7080;
+	cursor: not-allowed;
+}
 .date-range-outer-container .date-picker-buttons .date-buttons .disabled {
-	color: #5c7080 99;
+	color: #5c7080;
 	cursor: not-allowed;
 }
 .date-range-outer-container i {

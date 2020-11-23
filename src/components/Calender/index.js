@@ -10,11 +10,12 @@ class Calender extends Component {
 	handleDateCancel = () => {
 		this.setState({ showCalender: false });
 	};
-	handleDateSelect = () => {};
+	handleDateSelect = (daterange) => {
+		console.log(daterange);
+	};
 	render() {
 		const { showCalender } = this.state;
 		const { daterange } = this.props;
-		console.log(daterange);
 		return (
 			<div className='date-range-picker-component-container calender-container'>
 				<i

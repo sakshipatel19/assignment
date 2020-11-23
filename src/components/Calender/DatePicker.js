@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { DateRangePicker } from '@blueprintjs/datetime';
+import moment from 'moment';
 
 import 'normalize.css';
 import '@blueprintjs/datetime/lib/css/blueprint-datetime.css';
@@ -7,33 +8,34 @@ import '@blueprintjs/core/lib/css/blueprint.css';
 import './DatePicker.css';
 
 const validateSelect = (dateRange) => {
-	if (dateRange === null) return false;
-	return true;
+	if (dateRange[0] === null || dateRange[1] === null) return false;
+	else return true;
 };
 class DatePicker extends Component {
 	state = {
-		daterange: this.props.daterange,
+		dates: [],
 	};
-	handleRangeChange = (daterange) => {
-		// const range =
-		// 	(this.props.handleRangeChange &&
-		// 		this.props.handleRangeChange(dateRange)) ||
-		// 	dateRange;
-
+	handleRangeChange = (dates) => {
 		this.setState({
-			daterange: daterange,
+			dates,
 		});
 	};
 	handleDateCancel = () => {
 		this.props.handleDateCancel();
 	};
-	handleDateSelect = () => {
-		const { daterange } = this.state;
-		if (validateSelect(daterange)) this.props.handleDateSelect(daterange);
+	handleDateSelect = (e) => {
+		e.preventDefault();
+		const { dates } = this.state;
+		if (validateSelect(dates)) this.props.handleDateSelect(dates);
+	};
+	convertEpochTimeToDate = (value) => {
+		return moment(parseInt(value)).format('L');
 	};
 	render() {
 		const { daterange } = this.props;
-		console.log(daterange);
+		const { dates } = this.state;
+		let startDate = this.convertEpochTimeToDate(daterange?.startDate);
+		let endDate = this.convertEpochTimeToDate(daterange?.endDate);
 		const { calenderClass } = this.props;
 		const isSelectDisabled = validateSelect(daterange);
 		const classes = `date-range-inner-container ${calenderClass}`;
@@ -43,11 +45,11 @@ class DatePicker extends Component {
 				<i className={`${calenderClass}-i`}></i>
 				<DateRangePicker
 					className={classes}
-					value={daterange}
+					value={dates}
 					onChange={this.handleRangeChange}
 					contiguousCalendarMonths={false}
-					maxDate={new Date()}
-					minDate={new Date('2020-03-19')}
+					maxDate={new Date(endDate)}
+					minDate={new Date(startDate)}
 				/>
 
 				<div className={`date-picker-buttons ${calenderClass}-btn`}>
@@ -58,9 +60,9 @@ class DatePicker extends Component {
 						</div>
 						<div
 							className={`date-picker-select ${
-								!isSelectDisabled && 'disabled'
+								!isSelectDisabled ? 'disabled' : ''
 							}`}
-							onClick={this.handleDateSelect}
+							onClick={(e) => this.handleDateSelect(e)}
 						>
 							SELECT
 						</div>
