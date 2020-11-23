@@ -44,7 +44,6 @@ const BarGraph = (props) => {
 		tooltips: {
 			enabled: true,
 			mode: 'index',
-			// xAlign: "left",
 			callbacks: {
 				title: function (tooltipItem, data) {
 					let title;
@@ -131,13 +130,13 @@ const BarGraph = (props) => {
 	return (
 		<div
 			className='bargraph-container'
-			style={{ width: '100%', height: '500px', padding: '20px' }}
+			style={{ width: '900px', height: '500px', padding: '20px' }}
 		>
 			<Bar
 				redraw
 				data={getChartData}
 				options={barChartOptions}
-				width={1200}
+				width={900}
 				height={500}
 			/>
 		</div>
