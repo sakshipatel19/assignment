@@ -1,16 +1,17 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import Card from '../Card';
+import LoadingSquare from '../Loader/LoadingSquare';
 
 const BarGraph = (props) => {
 	const createGraphData = () => {
-		const data = props?.data;
+		const data = props?.data?.data;
 		const datasets = [];
 		const labels = [],
 			dataArray = [];
 
 		data &&
-			data?.data.forEach((item) => {
+			data?.data?.forEach((item) => {
 				labels.push(item?.publisherId);
 				dataArray.push(item?.impressions_offered);
 			});
@@ -107,20 +108,24 @@ const BarGraph = (props) => {
 	return (
 		<Card>
 			<div className='card-header'>
-				<div className='card-title'>Bar Chart</div>
+				<div className='card-title'>Stats Chart 2</div>
 			</div>
-			<div
-				className='bargraph-container'
-				style={{ width: '900px', height: '500px' }}
-			>
-				<Bar
-					redraw
-					data={getChartData}
-					options={barChartOptions}
-					width={900}
-					height={500}
-				/>
-			</div>
+			{props.data.fetching ? (
+				<LoadingSquare />
+			) : (
+				<div
+					className='bargraph-container'
+					style={{ width: '900px', height: '500px' }}
+				>
+					<Bar
+						redraw
+						data={getChartData}
+						options={barChartOptions}
+						width={900}
+						height={500}
+					/>
+				</div>
+			)}
 		</Card>
 	);
 };

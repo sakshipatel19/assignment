@@ -37,8 +37,8 @@ class Dashboard extends Component {
 					</div>
 				</div>
 				<div className='chart-container'>
-					<PieChart data={chart2Data.data} />
-					<BarGraph data={chart1Data.data} />
+					<PieChart data={chart2Data} />
+					<BarGraph data={chart1Data} />
 				</div>
 			</div>
 		);

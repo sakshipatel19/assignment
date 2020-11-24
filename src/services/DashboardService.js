@@ -96,10 +96,8 @@ class DashboardService {
 	};
 
 	fetchChart1data = async (payload) => {
-		console.log(payload);
 		const commonPayload = { ...chart1Payload };
 		if (payload) commonPayload.chartObject.requestParam.dateRange = payload;
-		console.log(commonPayload);
 		const body = { ...commonPayload };
 		return await Axios.post(
 			'https://sigviewauth.sigmoid.io/api/v1/getData',
@@ -108,10 +106,8 @@ class DashboardService {
 	};
 
 	fetchChart2data = async (payload) => {
-		console.log(payload);
 		const commonPayload = { ...chart2Payload };
 		if (payload) commonPayload.chartObject.requestParam.dateRange = payload;
-		console.log(commonPayload);
 		const body = { ...commonPayload };
 		return await Axios.post('https://sigview.sigmoid.io/api/v1/getData', body);
 	};

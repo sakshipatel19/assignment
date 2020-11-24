@@ -2,6 +2,7 @@ import { Doughnut, Chart } from 'react-chartjs-2';
 import React from 'react';
 
 import Card from '../Card';
+import LoadingCircle from '../Loader/LoadingCircle';
 
 const PieChart = (props) => {
 	const getRandomColor = () => {
@@ -20,7 +21,7 @@ const PieChart = (props) => {
 			colors = [];
 
 		props?.data?.data &&
-			props?.data?.data.forEach((obj, i) => {
+			props?.data?.data?.data?.forEach((obj, i) => {
 				data.push(obj?.CM001_percent);
 				labels.push(obj?.advertiserId);
 				colors.push(getRandomColor());
@@ -38,42 +39,46 @@ const PieChart = (props) => {
 	return (
 		<Card className='pie-card'>
 			<div className='card-header'>
-				<div className='card-title'>Pie Chart</div>
+				<div className='card-title'>Stats Chart 1</div>
 			</div>
-			<div
-				style={{
-					width: '350px',
-					height: '350px',
-					marginRight: '30px',
-					marginTop: '30px',
-				}}
-			>
-				<Doughnut
-					redraw
-					data={createGraphData()}
-					width={300}
-					height={300}
-					options={{
-						aspectRatio: 1,
-						tooltips: {
-							enabled: true,
-						},
-						legend: {
-							display: false,
-						},
-						layout: {
-							padding: {
-								left: 0,
-								top: 30,
-								right: 0,
-								bottom: 5,
-							},
-						},
-						rotation: 150,
-						cutoutPercentage: 0,
+			{props.data.fetching ? (
+				<LoadingCircle />
+			) : (
+				<div
+					style={{
+						width: '350px',
+						height: '350px',
+						marginRight: '30px',
+						marginTop: '30px',
 					}}
-				/>
-			</div>
+				>
+					<Doughnut
+						redraw
+						data={createGraphData()}
+						width={300}
+						height={300}
+						options={{
+							aspectRatio: 1,
+							tooltips: {
+								enabled: true,
+							},
+							legend: {
+								display: false,
+							},
+							layout: {
+								padding: {
+									left: 0,
+									top: 30,
+									right: 0,
+									bottom: 5,
+								},
+							},
+							rotation: 150,
+							cutoutPercentage: 0,
+						}}
+					/>
+				</div>
+			)}
 		</Card>
 	);
 };
