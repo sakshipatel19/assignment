@@ -15,7 +15,7 @@ class Login extends Component {
 		const { username, password } = this.state;
 		if (isEmail(username) && isPassword(password)) {
 			if (authenticate(username, password)) {
-				this.props.history.push('/dashboard');
+				setTimeout(() => this.props.history.push('/dashboard'), 3000);
 			} else {
 				this.setState({ password: '', username: '' });
 			}
